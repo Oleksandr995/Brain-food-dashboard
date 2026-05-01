@@ -63,6 +63,8 @@ export default function Home() {
   const [cohortData, setCohortData] = useState<CohortRow[]>([]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return; // 💥 DAS IST DER FIX
+
     loadData();
     subscribe();
   }, []);
